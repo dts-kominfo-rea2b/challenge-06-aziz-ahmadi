@@ -59,7 +59,9 @@ const bacaData = (fnCallback) => {
         resultMessages.push(newMessage);
         fnCallback(
           null,
-          resultMessages
+          resultMessages.filter((item, idx, items) => {
+            return items.indexOf(item) === idx;
+          })
         );
       });
     });
